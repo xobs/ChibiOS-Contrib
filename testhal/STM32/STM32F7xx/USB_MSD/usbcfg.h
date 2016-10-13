@@ -1,5 +1,5 @@
 /*
-    ChibiOS/RT - Copyright (C) 2014 Uladzimir Pylinsky aka barthess
+    ChibiOS - Copyright (C) 2006..2016 Giovanni Di Sirio
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,15 +14,15 @@
     limitations under the License.
 */
 
-#ifndef ONEWIRE_TEST_H_
-#define ONEWIRE_TEST_H_
+#ifndef USBCFG_H
+#define USBCFG_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-  void onewireTest(void);
-#ifdef __cplusplus
-}
-#endif
+#define USBD1_DATA_REQUEST_EP           1
+#define USBD1_DATA_AVAILABLE_EP         1
+#define USBD1_INTERRUPT_REQUEST_EP      2
 
-#endif /* ONEWIRE_TEST_H_ */
+extern const USBConfig usbcfg;
+
+#endif  /* USBCFG_H */
+
+/** @} */
