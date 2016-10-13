@@ -373,6 +373,11 @@ OSAL_IRQ_HANDLER(KINETIS_USB_IRQ_VECTOR) {
     //? USB0->USBCTRL &= ~USBx_USBCTRL_SUSP;
     // maybe also
     //? USB0->CTL = USBx_CTL_USBENSOFEN;
+
+    // Work arounda bug where a "resume" happens without a "suspend"
+    if (usbp->state != USB_SUSPENDED)
+      usbp->saved_state = usbp->state;
+
     _usb_wakeup(usbp);
     USB0->ISTAT = USBx_ISTAT_RESUME;
   }
